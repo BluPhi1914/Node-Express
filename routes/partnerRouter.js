@@ -8,17 +8,17 @@ partnerRouter.route('/')
     next();
 })
 .get((req, res) => {
-    res.end('Will send all the promotions to you');
+    res.end('Will send all the partners to you');
 })
 .post((req, res) => {
-    res.end(`Will add the campsite: ${req.body.name} with description: ${req.body.description}`);
+    res.end(`Will add the partner: ${req.body.name} with description: ${req.body.description}`);
 })
 .put((req, res) => {
     res.statusCode = 403;
-    res.end('PUT operation not supported on /campsites');
+    res.end('PUT operation not supported on /partners');
 })
 .delete((req, res) => {
-    res.end('Deleting all campsites');
+    res.end('Deleting all partners');
 })
 
 partnerRouter.route('/:partnerId')
@@ -28,22 +28,22 @@ partnerRouter.route('/:partnerId')
     next();
 })
 .get((req, res) => {
-    res.end(`Will send details of the campsite: ${req.params.partnerId} to you`);
+    res.end(`Will send details of the partners: ${req.params.partnerId} to you`);
 })
 
 .post((req, res) => {
     res.statusCode = 403;
-    res.end(`POST operation not supported on /campsites/${req.params.partnerId}`);
+    res.end(`POST operation not supported on /partners/${req.params.partnerId}`);
 })
 
 .put((req, res) => {
-    res.write(`Updating the campsite: ${req.params.partnerId}\n`);
-    res.end(`Will update the campsite: ${req.body.name}
+    res.write(`Updating the partners: ${req.params.partnerId}\n`);
+    res.end(`Will update the partners: ${req.body.name}
         with description: ${req.body.description}`);
 })
 
 .delete((req, res) => {
-    res.end(`Deleting campsite: ${req.params.partnerId}`);
+    res.end(`Deleting partner: ${req.params.partnerId}`);
 })
 
 module.exports = partnerRouter;
